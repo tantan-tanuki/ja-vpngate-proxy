@@ -31,8 +31,9 @@ connect &
 while :; do
   sleep 5
   AFTER_IP=$(global_ip)
-  echo $BEFORE_IP "==" $AFTER_IP
-  if [ $? -ne 0 ]; then
+  result=$?
+  echo "before=$BEFORE_IP after=$AFTER_IP"
+  if [ $result -ne 0 ]; then
     pkill openvpn
   elif [ "$BEFORE_IP" = "$AFTER_IP" ]; then
     pkill openvpn
