@@ -7,7 +7,8 @@ RUN apk add --no-cache \
     curl \
     coreutils \
     linux-tools \
-    util-linux
+    util-linux && \
+    rename .new '' /etc/privoxy/*new
 
 COPY start.sh /bin/
 
