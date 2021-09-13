@@ -1,9 +1,13 @@
-FROM ubuntu:20.04
+FROM alpine:3.14
 
-RUN apt update -y && \
-    apt install -y openvpn curl privoxy && \
-    apt clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+    bash \
+    privoxy \
+    openvpn \
+    curl \
+    coreutils \
+    linux-tools \
+    util-linux
 
 COPY start.sh /bin/
 

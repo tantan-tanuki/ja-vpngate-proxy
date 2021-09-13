@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 VPNGATE_URL=http://www.vpngate.net/api/iphone/
 
@@ -19,7 +19,7 @@ function connect {
   done
 }
 
-BEFORE_IP="$(curl -s inet-ip.info)"
+BEFORE_IP="$(global_ip)"
 
 # start proxy
 privoxy <(grep -v listen-address /etc/privoxy/config ; echo listen-address  0.0.0.0:8118) &
